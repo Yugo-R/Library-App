@@ -15,22 +15,14 @@
                 <button class="close-button">&times;</button>
             </div>
             <form class="modal-body">
-                <div>
-                    <label for="bookTitle">Book title: </label>
-                    <input type="text" id="bookTitle" name="bookTitle">
-                </div>
-                <div>
-                    <label for="bookAuthor">Author: </label>
-                    <input type="text" id="bookAuthor" name="bookAuthor">
-                </div>
-                <div>
-                    <label for="page">Page: </label>
-                    <input type="number" id="page" name="page">
-                </div>
-                <div>
-                    <label for="bookRead">Readed</label>
-                    <input type="checkbox" id="bookRead" name="bookRead">
-                </div>
+                <label for="bookTitle" id="bookTitleLabel">Book title: </label>
+                <input type="text" id="bookTitle" name="bookTitle">
+                <label for="bookAuthor" id="bookAuthorLabel">Author: </label>
+                <input type="text" id="bookAuthor" name="bookAuthor">
+                <label for="page" id="pageLabel">Page: </label>
+                <input type="number" id="page" name="page">
+                <label for="bookRead" id="readLabel">Readed</label>
+                <input type="checkbox" id="bookRead" name="bookRead">
                 <input id="submitbtn" type="submit" value="Add book">
             </form>
         </div>
@@ -41,6 +33,7 @@
             </div>
             <button class="addBook">+</button>
         </div>
+        <div id="overlay"></div>
         <script src="script.js"></script>
     </body>
 </html>

@@ -43,6 +43,7 @@
 .todo a{
     padding: 1px;
     color: black;
+    transition: 0.3s;
 }
 
 .todo a:hover{
@@ -82,7 +83,7 @@
     background-color: white;
     width: 500px;
     height: 250px;
-    max-width: 800px;
+    max-width:80%;
 }
 
 .modal-header{
@@ -93,19 +94,94 @@
     border-bottom: 1px solid black;
 }
 
+.modal-header button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
 .modal-body{
     flex: 1;
     padding: 10px 15px;
-    display: flex;
-    height: auto;
-    flex-direction: column;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr;
+    grid-template-rows: repeat(5,1fr);
+    grid-template-areas: "titleL titleI titleI ."
+                         "authorL authorI authorI ."
+                         "pageL pageI pageI ."
+                         "readL readI . ."
+                         ". . submit .";
 }
 
-.modal-body input{
-    width: 100px;
+.modal-body label{
+    justify-self: start;
+    align-self: center;
+}
+
+.modal-body input[type=text],input[type=number]{
+    height: 70%;
+    justify-self: start;
+    align-self: center;
+    border: 3px solid #A2A2A1FF;
+    transition: 0.3s;
+    outline: none;
+}
+
+.modal-body input[type=text]:focus,input[type=number]:focus{
+    border: 3px solid lightgreen;
+}
+
+#bookTitleLabel{
+    grid-area: titleL ;
+    
+}
+
+#bookTitle{
+    grid-area: titleI;
+}
+
+#bookAuthorLabel{
+    grid-area: authorL;
+}
+
+#bookAuthor{
+    grid-area: authorI;
+}
+
+#pageLabel{
+    grid-area: pageL;
+}
+
+#page{
+    grid-area: pageI;
+}
+
+#readLabel{
+    grid-area: readL;
+}
+
+#bookRead{
+    grid-area: readI;
+    justify-self: start;
+    align-self: center;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
 }
 
 #submitbtn{
-    align-self: center;
+    grid-area: submit;
+    padding: 5px 5px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    background-color: grey;
+    transition: 0.3s;
+}
+
+#submitbtn:hover{
+    background-color: rgb(23, 199, 23);
 }
