@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.body{
+    background-color:#E7EBE0FF;
+}
+
+.navbar{
+    height: 20vh;
+    width: 100%;
+    border-bottom: 2px solid green;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #7DB46CFF;
+    color:#E7EBE0FF;
+}
+
+.navbar h1{
+    margin-left: 10px;
+}
+
+.dropdownBtn{
+    display: flex;
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+}
+
+.todo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 15px;
+    display: none;
+}
+
+.todo a{
+    padding: 1px;
+    color: black;
+}
+
+.todo a:hover{
+    color:#FCF6F5FF;
+    background-color:#2BAE66FF;
+}
+
+.addBook{
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    color: white;
+    background-color: #07df0c;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    font-size: large;
+    font-weight: bold;
+    -webkit-box-shadow: 1px 12px 23px -7px rgba(0,0,0,0.71); 
+    box-shadow: 1px 12px 23px -7px rgba(0,0,0,0.71);
+}
+
+.dropdownBtn:hover .todo{
+    display: flex;
+}
+
+.modalBook{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    height: 250px;
+    max-width: 800px;
+}
+
+.modal-header{
+    padding: 15px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    border-bottom: 1px solid black;
+}
+
+.modal-body{
+    flex: 1;
+    padding: 10px 15px;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modal-body input{
+    width: 100px;
+}
+
+#submitbtn{
+    align-self: center;
+}

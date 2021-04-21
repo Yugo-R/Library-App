@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Library App</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="navbar">
+            <h1>Library App</h1>
+        </div>
+        <div class="modalBook" id="modalBook">
+            <div class="modal-header">
+                <div class="title">Add a new book</div>
+                <button class="close-button">&times;</button>
+            </div>
+            <form class="modal-body">
+                <div>
+                    <label for="bookTitle">Book title: </label>
+                    <input type="text" id="bookTitle" name="bookTitle">
+                </div>
+                <div>
+                    <label for="bookAuthor">Author: </label>
+                    <input type="text" id="bookAuthor" name="bookAuthor">
+                </div>
+                <div>
+                    <label for="page">Page: </label>
+                    <input type="number" id="page" name="page">
+                </div>
+                <div>
+                    <label for="bookRead">Readed</label>
+                    <input type="checkbox" id="bookRead" name="bookRead">
+                </div>
+                <input id="submitbtn" type="submit" value="Add book">
+            </form>
+        </div>
+        <div class="dropdownBtn">
+            <div class="todo">
+                <a href="#">New folder</a>
+                <a href="#">Add a book</a>
+            </div>
+            <button class="addBook">+</button>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
