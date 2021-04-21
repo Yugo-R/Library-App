@@ -12,7 +12,7 @@
         <div class="modalBook" id="modalBook">
             <div class="modal-header">
                 <div class="title">Add a new book</div>
-                <button class="close-button">&times;</button>
+                <button data-close-button class="close-button">&times;</button>
             </div>
             <form class="modal-body">
                 <label for="bookTitle" id="bookTitleLabel">Book title: </label>
@@ -28,10 +28,10 @@
         </div>
         <div class="dropdownBtn">
             <div class="todo">
-                <a href="#">New folder</a>
-                <a href="#">Add a book</a>
+                <button data-modal-target="#modalFolder">New folder</button>
+                <button data-modal-target="#modalBook">Add a book</button>
             </div>
-            <button class="addBook">+</button>
+            <button data-modal-target="#modalBook" class="addBook">+</button>
         </div>
         <div id="overlay"></div>
         <script src="script.js"></script>
