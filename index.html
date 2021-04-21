@@ -12,7 +12,7 @@
         <div class="modalBook" id="modalBook">
             <div class="modal-header">
                 <div class="title">Add a new book</div>
-                <button data-close-button class="close-button">&times;</button>
+                <button data-close-button ="#modalBook" class="close-button">&times;</button>
             </div>
             <form class="modal-body">
                 <label for="bookTitle" id="bookTitleLabel">Book title: </label>
@@ -25,6 +25,19 @@
                 <input type="checkbox" id="bookRead" name="bookRead">
                 <input id="submitbtn" type="submit" value="Add book">
             </form>
+        </div>
+        <div class="modalFolder" id="modalFolder">
+            <div class="modal-header">
+                <div class="title">Add a new folder</div>
+                <button data-close-button ="#modalFolder" class="close-button">&times;</button>
+            </div>
+            <div class="modal-folder-body">
+                <div class="folderInput">
+                    <label for="folderName">Name of the folder: </label>
+                    <input type="text" id="folderName" name="folderName">
+                </div> 
+                <input id="submitFolderName" type="submit" value="create folder">
+            </div>
         </div>
         <div class="dropdownBtn">
             <div class="todo">

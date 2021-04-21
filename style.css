@@ -194,6 +194,60 @@
     background-color: rgb(23, 199, 23);
 }
 
+.modalFolder{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    height: 250px;
+    max-width:80%;
+}
+
+.modalFolder.active{
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.modal-folder-body{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modal-folder-body input[type=text]{
+    border: 3px solid #A2A2A1FF;
+    transition: 0.3s;
+    outline: none;
+}
+
+.modal-folder-body input[type=text]:focus{
+    border: 3px solid lightgreen;
+}
+
+#submitFolderName{
+    padding: 10px 10px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: grey;
+    transition: 0.3s;
+    border-radius: 20px;
+}
+
+#submitFolderName:hover{
+    background-color: rgb(23, 199, 23);
+}
+
 #overlay{
     position: fixed;
     transition: 200ms ease-in-out;
