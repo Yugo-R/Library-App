@@ -14,13 +14,13 @@
                 <div class="title">Add a new book</div>
                 <button data-close-button ="#modalBook" class="close-button">&times;</button>
             </div>
-            <form class="modal-body">
+            <form data-modal-book class="modal-body" autocomplete="off">
                 <label for="bookTitle" id="bookTitleLabel">Book title: </label>
-                <input type="text" id="bookTitle" name="bookTitle">
+                <input type="text" id="bookTitle" name="bookTitle" required>
                 <label for="bookAuthor" id="bookAuthorLabel">Author: </label>
-                <input type="text" id="bookAuthor" name="bookAuthor">
+                <input type="text" id="bookAuthor" name="bookAuthor" required>
                 <label for="page" id="pageLabel">Page: </label>
-                <input type="number" id="page" name="page">
+                <input type="number" id="page" name="page" required>
                 <label for="bookRead" id="readLabel">Readed</label>
                 <input type="checkbox" id="bookRead" name="bookRead">
                 <input id="submitbtn" type="submit" value="Add book">
@@ -45,6 +45,8 @@
                 <button data-modal-target="#modalBook">Add a book</button>
             </div>
             <button data-modal-target="#modalBook" class="addBook">+</button>
+        </div>
+        <div class="container" id="container">
         </div>
         <div id="overlay"></div>
         <script src="script.js"></script>
