@@ -40,6 +40,7 @@ function closeModal(modal){
     if(modal == null) return;
     modal.classList.remove('active');
     overlay.classList.remove('active');
+    modalAddBook.reset();
 }
 
 function createCard(num){
@@ -113,5 +114,10 @@ function addBookToLibrary(newBook) {
     cardBody.appendChild(cardTail);
     //Append the card to the container
     cardContainer.appendChild(cardBody);
+
+    //close modal
+    let modal = document.querySelector('.modalBook')
+    closeModal(modal);
+
 
 }
