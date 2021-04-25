@@ -76,13 +76,14 @@ function Book(title,author,page,read) {
   this.title = title;
   this.author = author;
   this.page = page + ' pages';
-  this.read = read;
+  this.read = read? 'Readed':'Not readed';
 }
 
 function addBookToLibrary(newBook) {
     //Create conponnent of a card
     let cardBody = document.createElement('div');
     cardBody.className = 'card'
+    cardBody.id = `card${myLibrary.length - 1}`;
 
     let cardHead = document.createElement('div');
     cardHead.className = 'cardHead'
@@ -105,6 +106,9 @@ function addBookToLibrary(newBook) {
     let deleteBtn = document.createElement('button');
     deleteBtn.className = 'deleteCard';
     deleteBtn.textContent = 'Delete';
+    //Set data attribute of button to the specific card id and title name so we can delete from the dom and array easily
+    deleteBtn.dataset.card = '#' + cardBody.id;
+    deleteBtn.dataset.title = newBook.title;
 
     cardTail.appendChild(editBtn);
     cardTail.appendChild(deleteBtn);
@@ -118,6 +122,13 @@ function addBookToLibrary(newBook) {
     //close modal
     let modal = document.querySelector('.modalBook')
     closeModal(modal);
-
-
 }
+
+cardContainer.addEventListener('click', (e) =>{
+        if(e.target.dataset){
+            document.querySelector(e.target.dataset.card).remove();
+            pos = myLibrary.findIndex(ele => ele.title == e.target.dataset.title);
+            myLibrary.splice(e.target.dataset.index,1);
+        }
+})
+
