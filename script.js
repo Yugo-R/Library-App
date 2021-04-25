@@ -76,7 +76,7 @@ function Book(title,author,page,read) {
   this.title = title;
   this.author = author;
   this.page = page + ' pages';
-  this.read = read? 'Readed':'Not readed';
+  this.read = read;
 }
 
 function addBookToLibrary(newBook) {
@@ -91,17 +91,25 @@ function addBookToLibrary(newBook) {
     let cardTail = document.createElement('div');
     cardTail.className = 'cardTail'
 
-    //Create h2 from book obj and append to cardHead
+    //Create h2 from book obj and append to cardHead but not read;
     for(key in newBook){
-        let newText = document.createElement('h2');
-        newText.textContent = newBook[key];
-        cardHead.appendChild(newText);
+        if(key === 'read'){
+            continue
+        }
+        else{
+            let newText = document.createElement('h2');
+            newText.textContent = newBook[key];
+            cardHead.appendChild(newText);
+        }  
     }
 
     //Create two button and append to cardTail
     let editBtn = document.createElement('button');
     editBtn.className = 'readCheck';
-    editBtn.textContent = 'Edit';
+    editBtn.textContent = newBook.read? 'Readed':'Not readed';
+    editBtn.style.backgroundColor = newBook.read? 'green':'red';
+    editBtn.dataset.card = '#' + cardBody.id;
+    editBtn.dataset.read = newBook.title;
 
     let deleteBtn = document.createElement('button');
     deleteBtn.className = 'deleteCard';
@@ -125,10 +133,30 @@ function addBookToLibrary(newBook) {
 }
 
 cardContainer.addEventListener('click', (e) =>{
-        if(e.target.dataset){
+        if(e.target.className == 'deleteCard'){
             document.querySelector(e.target.dataset.card).remove();
             pos = myLibrary.findIndex(ele => ele.title == e.target.dataset.title);
             myLibrary.splice(e.target.dataset.index,1);
+        }
+        else if(e.target.className == 'readCheck'){
+            if(e.target.innerText == 'Readed'){
+                e.target.innerText = 'Not Readed';
+                e.target.style.backgroundColor = 'red';
+                for(ele of myLibrary){
+                    if(ele.title == e.target.dataset.read){
+                        ele.read = false;
+                    }
+                }
+            }
+            else{
+                e.target.innerText = 'Readed';
+                e.target.style.backgroundColor = 'green';
+                for(let ele of myLibrary){
+                    if(ele.title == e.target.dataset.read){
+                        ele.read = true;
+                    }
+                }
+            }
         }
 })
 

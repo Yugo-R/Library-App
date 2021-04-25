@@ -277,18 +277,18 @@
 }
 
 .card button{
-    height: 30px;
-    width: 50px;
+    height: 35px;
+    width: 55px;
     outline: none;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    transition: 200ms ease-in-out;
+    transition: 200ms
 }
 
 .card button:hover{
-    height: 35px;
-    width: 55px;
+    height: 40px;
+    width: 60px;
     font-size:medium;
 }
 
