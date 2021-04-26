@@ -45,19 +45,19 @@ function closeModal(modal){
 }
 // ----------------------------------------------------------------------------
 
-//When the page load
-
-//Check local storage for book library data
-
-//Update the page using book library data
-function createCard(num){
-    for(let i=0; i < num; i++){
-        let newCard = document.createElement('div')
-        newCard.className = 'card';
-        newCard.id = `card${i}`;
-        container.appendChild(newCard);
+//When the page load, check local storage for book library data
+window.onload = function(){
+    //If nothing in localstorage do nothing.
+    if(!JSON.parse(localStorage.getItem("myLibrary"))){
+        return;
     }
-    
+    //Else update the page using book library data 
+    else{
+        myLibrary = [...JSON.parse(localStorage.getItem("myLibrary"))];
+        for(let book of myLibrary){
+            addBookToLibrary(book);
+        }
+    }
 }
 
 // On modal submit
@@ -74,7 +74,7 @@ modalAddBook.addEventListener('submit',(event)=>{
     //Check if book already exist in the library
     for(book of myLibrary){
         if(newBook.title == book.title){
-            alert(`Book with the name of '${newBook.title}' already exist in the library. Pleade try again.`);
+            alert(`Book with the name of '${newBook.title}' already exist in the library. Please try again.`);
             return;
         }
     }
@@ -84,6 +84,7 @@ modalAddBook.addEventListener('submit',(event)=>{
     addBookToLibrary(newBook);
     
     //Save them in the local storage
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 });
 
 // the constructor...
@@ -94,6 +95,7 @@ function Book(title,author,page,read) {
   this.read = read;
 }
 
+//Create book card and display on screen
 function addBookToLibrary(newBook) {
     //Create conponnent of a book card
     let cardBody = document.createElement('div');
@@ -147,19 +149,27 @@ function addBookToLibrary(newBook) {
     closeModal(modal);
 }
 
+//When click read button or delete button
 cardContainer.addEventListener('click', (e) =>{
+        //If delete button
         if(e.target.className == 'deleteCard'){
             document.querySelector(e.target.dataset.card).remove();
+            //Remove book from array
             pos = myLibrary.findIndex(ele => ele.title == e.target.dataset.title);
             myLibrary.splice(e.target.dataset.index,1);
+            //Local storage equal to modified array
+            localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
         }
+        //If read button
         else if(e.target.className == 'readCheck'){
+            //Change boolean of .read according to the user input.
             if(e.target.innerText == 'Readed'){
                 e.target.innerText = 'Not Readed';
                 e.target.style.backgroundColor = 'red';
                 for(ele of myLibrary){
                     if(ele.title == e.target.dataset.read){
                         ele.read = false;
+                        localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
                     }
                 }
             }
@@ -169,6 +179,7 @@ cardContainer.addEventListener('click', (e) =>{
                 for(let ele of myLibrary){
                     if(ele.title == e.target.dataset.read){
                         ele.read = true;
+                        localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
                     }
                 }
             }
