@@ -5,6 +5,7 @@ const modalAddBook = document.querySelector('[data-modal-book]');
 const cardContainer = document.getElementById('container');
 let myLibrary = [];
 
+//modal event ----------------------------------------------------------------
 openModalButtons.forEach(button =>{
     button.addEventListener('click', () =>{
         let modal = document.querySelector(button.dataset.modalTarget)
@@ -42,7 +43,13 @@ function closeModal(modal){
     overlay.classList.remove('active');
     modalAddBook.reset();
 }
+// ----------------------------------------------------------------------------
 
+//When the page load
+
+//Check local storage for book library data
+
+//Update the page using book library data
 function createCard(num){
     for(let i=0; i < num; i++){
         let newCard = document.createElement('div')
@@ -53,17 +60,18 @@ function createCard(num){
     
 }
 
-//Event listener on modal submit
+// On modal submit
 modalAddBook.addEventListener('submit',(event)=>{
     event.preventDefault();
     
+    //Get value from the form
     let title = document.getElementById('bookTitle').value
     let author = document.getElementById('bookAuthor').value
     let page = document.getElementById('page').value
-    let readed = document.getElementById('bookRead').checked
-
+    let readed = document.getElementById('bookRead').checked;
     let newBook = new Book(title,author,page,readed);
 
+    //Check if book already exist in the library
     for(book of myLibrary){
         if(newBook.title == book.title){
             alert(`Book with the name of '${newBook.title}' already exist in the library. Pleade try again.`);
@@ -71,15 +79,15 @@ modalAddBook.addEventListener('submit',(event)=>{
         }
     }
     
+    //Add book to the library array and display it on the screen
     myLibrary.push(newBook);
     addBookToLibrary(newBook);
     
-
+    //Save them in the local storage
 });
 
-
+// the constructor...
 function Book(title,author,page,read) {
-  // the constructor...
   this.title = title;
   this.author = author;
   this.page = page + ' pages';
@@ -87,7 +95,7 @@ function Book(title,author,page,read) {
 }
 
 function addBookToLibrary(newBook) {
-    //Create conponnent of a card
+    //Create conponnent of a book card
     let cardBody = document.createElement('div');
     cardBody.className = 'card'
     cardBody.id = `card${myLibrary.length - 1}`;
@@ -98,7 +106,7 @@ function addBookToLibrary(newBook) {
     let cardTail = document.createElement('div');
     cardTail.className = 'cardTail'
 
-    //Create h2 from book obj and append to cardHead but not read;
+    //Create h2 from book obj and append to cardHead but read value;
     for(key in newBook){
         if(key === 'read'){
             continue
