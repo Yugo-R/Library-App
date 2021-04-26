@@ -375,11 +375,15 @@
     .modal-header button{
         font-size: 2rem;
     }
+    .modal-body label{
+        justify-self: end;
+    }
 
     .modal-body input[type=text],input[type=number]{
         height: 55%;
         width: 100%;
         font-size: 25px;
+        justify-self: end;
     }
 
     #bookRead{
