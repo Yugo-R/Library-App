@@ -64,6 +64,13 @@ modalAddBook.addEventListener('submit',(event)=>{
 
     let newBook = new Book(title,author,page,readed);
 
+    for(book of myLibrary){
+        if(newBook.title == book.title){
+            alert(`Book with the name of '${newBook.title}' already exist in the library. Pleade try again.`);
+            return;
+        }
+    }
+    
     myLibrary.push(newBook);
     addBookToLibrary(newBook);
     
