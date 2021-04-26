@@ -356,6 +356,12 @@
     .todo button{
         height: 40%;
         font-size: 30px;
+        color:black;
+    }
+
+    .todo button:hover{
+        color:#FCF6F5FF;
+        background-color:#2BAE66FF;
     }
 
     .modalBook{
@@ -454,10 +460,10 @@
         width: 100%;
         grid-column: 2;
         grid-row: 1;
+        
     }
 
     .todo button{
-        height: 40%;
         width: 90%;
         font-size: 20px;
     }
