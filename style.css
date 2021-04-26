@@ -8,6 +8,7 @@
 
 .navbar{
     height: 20vh;
+    max-height: 20vh;
     width: 100%;
     border-bottom: 2px solid green;
     display: flex;
@@ -250,6 +251,8 @@
 }
 
 .card{
+    justify-self: center;
+    align-self: center;
     display: flex;
     flex-direction: column;
     margin: 35px;
@@ -319,4 +322,183 @@
 #overlay.active{
     opacity: 1;
     pointer-events: all;
+}
+/*For screen size 768 or lower */
+@media only screen and (max-width:768px) {
+    .navbar{
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+    }
+
+    .dropdownBtn{
+        height: 250px;
+        width: 350px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    .addBook{
+        grid-column: 2;
+        grid-row: 2;
+        align-self: center;
+        height: 100px;
+        width: 100px;
+        font-size: 50px;
+    }
+
+    .todo{
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .todo button{
+        height: 40%;
+        font-size: 30px;
+    }
+
+    .modalBook{
+        width: 700px;
+        height: 450px;
+        max-width:80%;
+        font-size: 25px;
+    }
+
+
+    .modal-header button{
+        font-size: 2rem;
+    }
+
+    .modal-body input[type=text],input[type=number]{
+        height: 55%;
+        width: 100%;
+        font-size: 25px;
+    }
+
+    #bookRead{
+        height: 35px;
+        width: 35px;
+    }
+
+    #submitbtn{
+        font-size: 25px;
+    }
+
+
+    .modalFolder{
+        width: 700px;
+        height: 450px;
+        font-size: 25px;
+    }
+
+    #folderName{
+        height: 30px;
+        width: 250px;
+    }
+
+    #submitFolderName{
+        height: 60px;
+        width: 170px;
+        font-size: 25px;
+    }
+
+    .container{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .card{
+        height: 300px;
+        width: 320px;
+        font-size: 20px;
+    }
+
+    .card button{
+        height: 45px;
+        width: 90px;
+        font-size: 20px;
+    }
+    
+    .card button:hover{
+        height: 45px;
+        width: 90px;
+        font-size: 20px;
+  }
+}
+
+/*For screen size 414 or lower*/
+@media only screen and (max-width:414px) {
+    .navbar{
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+    }
+
+    .dropdownBtn{
+        height: 200px;
+        width: 300px;
+        bottom: 0%;
+        right: 0%;
+    }
+
+    .addBook{
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: center;
+        height: 60px;
+        width: 60px;
+        font-size: 25px;
+    }
+
+    .todo{
+        width: 100%;
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .todo button{
+        height: 40%;
+        width: 90%;
+        font-size: 20px;
+    }
+
+    .modal-body{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(5,1fr);
+    }
+
+    .modal-body input[type=text],input[type=number]{
+        height: 55%;
+        width: 90%;
+        font-size: 25px;
+    }
+
+    #bookRead{
+        height: 35px;
+        width: 35px;
+        justify-self: center;
+    }
+
+    #submitbtn{
+        grid-column: 2;
+        grid-row: 5;
+        font-size: 25px;
+        align-self: center;
+    }
+
+
+    .folderInput{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+    }
+
+    .folderInput input{
+        font-size: 25px;
+    }
+
+    .container{
+        grid-template-columns: 1fr;
+    }
 }
