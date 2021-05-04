@@ -88,11 +88,19 @@ modalAddBook.addEventListener('submit',(event)=>{
 });
 
 // the constructor...
-function Book(title,author,page,read) {
-  this.title = title;
-  this.author = author;
-  this.page = page + ' pages';
-  this.read = read;
+// function Book(title,author,page,read) {
+//   this.title = title;
+//   this.author = author;
+//   this.page = page + ' pages';
+//   this.read = read;
+// }
+class Book{
+    constructor(title,author,page,read){
+        this.title = title;
+        this.author = author;
+        this .page = page + ' pages';
+        this.read = read;
+    }
 }
 
 //Create book card and display on screen
